@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/bookingTicketTraining.iml" filepath="$PROJECT_DIR$/.idea/bookingTicketTraining.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring/booking/remotehiring.iml" filepath="$PROJECT_DIR$/spring/booking/remotehiring.iml" />
+    </modules>
+  </component>
+</project>

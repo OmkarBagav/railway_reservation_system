@@ -1,0 +1,85 @@
+<div class="row mt-3 justify-content-center">
+    <div class="col-md-11 card" >
+        <div class="row " style="background: #cc3d00 radial-gradient(circle at 60% 100%,#ffa436 5%,#cc3d00 94%);;color: black;margin: 10px;padding: 10px;">
+            <div class="col-md-12 d-flex justify-content-center" >
+                <h2>Book Ticket</h2>
+            </div>
+        </div>
+        <div *ngIf="load" class="d-flex justify-content-center">
+            <div class="loadingio-spinner-pulse-f18fi8swilg"><div class="ldio-letfb25733">
+                <div></div><div></div><div></div>
+                </div>
+            </div>
+        </div>
+        
+        <hr>
+        <div class="row-2">
+            <div class="col-12 ">
+                <div class="row mb-3">
+                    <div class="col-12 ">
+                        <div class="row-3">
+                            <div>
+                            <h1>{{trains.train_name}}</h1>
+                            <label class="form-label">{{trains.trainFrom}}</label>
+                            <label class="form-label" *ngFor="let x of trains.route"> ==> {{x['via']}} </label>
+                            <label class="form-label"> ==> {{trains.trainTo}}</label>
+                            </div>
+                        </div>
+                       
+                        <form class="card" name="bookingForm">
+
+                            
+
+                            <div class="col-md-12 mt-2 mb-3">
+                                <label><b>Select Source</b></label>
+                                <select [(ngModel)]="bookingdetails.trainFrom" name="trainFrom" id ="trainFrom">                            
+                                    <option *ngFor="let item of sourceRouteOptions" [ngValue]="item">{{item}}</option>
+                                  </select>
+                                  {{selectedSource}}
+                                  
+
+                                  <label><b>Select Destination</b></label>
+                                  <select [(ngModel)]="bookingdetails.trainTo" name = "trainTo" id = "trainTo">                            
+                                      <option *ngFor="let item of destinationRouteOptions" [ngValue]="item">{{item}}</option>
+                                    </select>
+                                    {{selectedDestination}}
+
+                                <div class="row m-2">
+                                    <div>
+                                        Select Date : <input type="date" id="departDate" min="2022-09-28" max="2022-11-30" [(ngModel)]="bookingdetails.departDate" name="departDate">
+                               
+                                    </div>            
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-12 mb-3 ml-2">
+                                <p>Enter the Number of Tickets : </p>
+                                <input class="input mt-0" typye="number" name="numberOfTickets" id="numberOfTickets" min="1" max="24" [(ngModel)]="bookingdetails.numberOfSeats" >
+                            </div>
+                            <div class="col-md-12 m-2">
+                                <div class="form-group">
+                                    <label for="seat_type">Select Seating</label>
+                                    <select class="form-control"  [(ngModel)]="bookingdetails.seat_type" name="seat_type" id="seat_type" (change)="validateOptions()">
+                                            <option *ngFor='let seat of seats$' value="{{seat.seat_type}}">{{seat.seat_type}}</option>                                  
+                                    </select>
+                                </div>
+                            </div>
+                 
+                            <div class="col-md-12 mt-3 mb-5">
+                                <div class="m-1 mt-2">
+                                    <div class="row">
+                                        <div class="col">
+                                            <button (click)="addBooking()" class="btn btn-primary btn-block">Pay and Book</button>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                            </div>
+                     
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
